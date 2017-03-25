@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.adiputra.assyst.IntroActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla"
+            android:id="@+id/tvintro1"/>
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_toRightOf="@+id/tvintro1"
+            android:background="#F5d"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/bell"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/imgintro2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#F5d"
+            android:src="@drawable/telephone"
+            android:layout_marginRight="10dp"/>
+        <TextView
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla"
+            android:layout_toRightOf="@+id/imgintro2"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla"
+            android:id="@+id/tvintro3"/>
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_toRightOf="@+id/tvintro3"
+            android:background="#F5d"
+            android:src="@drawable/map"
+            android:layout_marginLeft="10dp"/>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="150dp"
+        android:text="next"
+        android:id="@+id/btnNext"/>
+
+</LinearLayout>
