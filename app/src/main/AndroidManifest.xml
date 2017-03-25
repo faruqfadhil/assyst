@@ -23,7 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".List" />
+        <activity android:name=".ListAdapter" />
+        <activity android:name=".DividerItemDecoration"></activity>
     </application>
 
 </manifest>

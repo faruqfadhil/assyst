@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.adiputra.assyst.MenuActivity">
 
     <android.support.design.widget.TabLayout
@@ -11,14 +11,14 @@
         android:paddingBottom="10dp"
         android:layout_height="50dp"
         android:id="@+id/tab1"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="10dp">
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
     </android.support.design.widget.TabLayout>
 
     <FrameLayout
         android:layout_below="@+id/tab1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/listFragment">
     </FrameLayout>
 
