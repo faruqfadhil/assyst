@@ -26,7 +26,7 @@
         android:id="@+id/tvCoordinate"
         android:layout_below="@+id/tvLocationName"
         android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_height="@dimen/_40sdp"
         android:text="Coordinate"
         android:textStyle="bold"/>
 
