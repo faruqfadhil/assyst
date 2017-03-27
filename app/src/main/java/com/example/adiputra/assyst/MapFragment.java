@@ -103,7 +103,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
                 LatLng sydney = place.getLatLng();
                 googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(20).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
             }
