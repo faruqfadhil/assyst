@@ -99,8 +99,8 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onPlaceSelected(Place place) {
                 btnSaveLoc.setVisibility(View.VISIBLE);
-                Toast.makeText(getActivity(),place.getName(),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(),place.getLatLng().toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),place.getAddress(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),place.getLatLng().toString(),Toast.LENGTH_SHORT).show();
                 //Toast.makeText(getActivity(),place.getViewport().toString(),Toast.LENGTH_SHORT).show();
 
                 locationName = place.getName();
@@ -109,7 +109,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
                 LatLng mySearch = place.getLatLng();
                 googleMap.addMarker(new MarkerOptions().position(mySearch).title(place.getName().toString()).snippet(place.getAddress().toString()));
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(mySearch).zoom(18).build();
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(mySearch).zoom(20).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
             }
