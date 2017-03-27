@@ -64,48 +64,60 @@ public class MapFragment extends Fragment implements View.OnClickListener {
                 googleMap = mMap;
 
                 // For showing a move to my location button
-                //googleMap.setMyLocationEnabled(true);
+                if (ActivityCompat.checkSelfPermission(getActivity(),
+                        Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                        && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                googleMap.setMyLocationEnabled(true);
 
                 // For dropping a marker at a point on the Map
-                LatLng sydney = new LatLng(-34, 151);
-                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
+
+                LatLng myLocation = new LatLng(-30,110);
+                googleMap.addMarker(new MarkerOptions().position(myLocation).title("Marker Title").snippet("Marker Description"));
 
                 // For zooming automatically to the location of the marker
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(myLocation).zoom(20).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         });
 
-        //return rootView;
-
-        //btnSearch = (Button) rootView.findViewById(R.id.btnSearch);
-        //btnSearch.setOnClickListener(this);
         PlaceAutocompleteFragment places = (PlaceAutocompleteFragment)
                 getActivity().getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+
         places.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
+
                 Toast.makeText(getActivity(),place.getName(),Toast.LENGTH_SHORT).show();
                 Toast.makeText(getActivity(),place.getLatLng().toString(),Toast.LENGTH_SHORT).show();
                 Toast.makeText(getActivity(),place.getViewport().toString(),Toast.LENGTH_SHORT).show();
+
+                LatLng sydney = place.getLatLng();
+                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
+                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
             }
             @Override
             public void onError(Status status) {
                 Toast.makeText(getActivity(),status.toString(),Toast.LENGTH_SHORT).show();
             }
         });
+
         AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
                 .setTypeFilter(AutocompleteFilter.TYPE_FILTER_ADDRESS)
                 .build();
         places.setFilter(typeFilter);
-        //fromLocation = (AutoCompleteTextView) rootView.findViewById(R.id.autoCompleteTextView);
-        //to = (AutoCompleteTextView) rootView.findViewById(R.id.to);
 
-        //fromLocation.setText("Fisherman's Wharf, San Francisco, CA, United States");
-        //to.setText("The Moscone Center, Howard Street, San Francisco, CA, United States");
-
-        //fromLocation.setAdapter(new MapFragment(this, android.R.layout.simple_dropdown_item_1line));
-        //to.setAdapter(new PlacesAutoCompleteAdapter(this, android.R.layout.simple_dropdown_item_1line));
         return rootView;
     }
 
