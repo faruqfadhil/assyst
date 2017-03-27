@@ -121,7 +121,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
         //Filter Search
         AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
-                .setTypeFilter(AutocompleteFilter.TYPE_FILTER_ADDRESS)
+                .setTypeFilter(AutocompleteFilter.TYPE_FILTER_NONE)
                 .build();
         places.setFilter(typeFilter);
 

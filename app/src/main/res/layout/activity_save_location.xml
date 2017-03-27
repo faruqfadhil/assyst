@@ -35,14 +35,14 @@
         android:layout_toRightOf="@+id/tvLocationName"
         android:id="@+id/tvLatitude"
         android:layout_width="@dimen/_110sdp"
-        android:layout_height="@dimen/_30sdp" />
+        android:layout_height="@dimen/_40sdp" />
 
     <TextView
         android:layout_below="@+id/tvLocationName"
         android:layout_toRightOf="@+id/tvLatitude"
         android:id="@+id/tvLongitude"
         android:layout_width="@dimen/_110sdp"
-        android:layout_height="@dimen/_30sdp" />
+        android:layout_height="@dimen/_40sdp" />
 
     <TextView
         android:id="@+id/tvMessage"
