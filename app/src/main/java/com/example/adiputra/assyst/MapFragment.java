@@ -85,7 +85,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
                 googleMap.addMarker(new MarkerOptions().position(myLocation).title("Marker Title").snippet("Marker Description"));
 
                 // For zooming automatically to the location of the marker
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(myLocation).zoom(20).build();
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(myLocation).zoom(15).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         });
@@ -103,7 +103,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
                 LatLng sydney = place.getLatLng();
                 googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(20).build();
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
             }
