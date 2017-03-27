@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_10sdp"
+    android:orientation="vertical"
+    tools:context="com.example.adiputra.assyst.SaveLocationActivity">
+
+    <TextView
+        android:id="@+id/tvLocationName"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:text="Location"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_toRightOf="@+id/tvLocationName"
+        android:id="@+id/tvLocationName2"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="@dimen/_30sdp" />
+
+    <TextView
+        android:id="@+id/tvCoordinate"
+        android:layout_below="@+id/tvLocationName"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:text="Coordinate"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_below="@+id/tvLocationName"
+        android:layout_toRightOf="@+id/tvLocationName"
+        android:id="@+id/tvLatitude"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_30sdp" />
+
+    <TextView
+        android:layout_below="@+id/tvLocationName"
+        android:layout_toRightOf="@+id/tvLatitude"
+        android:id="@+id/tvLongitude"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_30sdp" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_below="@+id/tvCoordinate"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:text="Message"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/etMessage"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_below="@+id/tvLatitude"
+        android:layout_toRightOf="@+id/tvMessage"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/etMessage"
+        android:text="SAVE"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

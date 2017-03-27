@@ -1,6 +1,7 @@
 package com.example.adiputra.assyst;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -40,7 +41,11 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
     MapView mMapView;
     private GoogleMap googleMap;
-    //Button btnSearch;
+    public CharSequence locationName;
+    public Double latitude;
+    public Double longitude;
+
+    //Button btnSaveLocation;
     //AutoCompleteTextView fromLocation;
 
     @Override
@@ -49,6 +54,8 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
         mMapView = (MapView) rootView.findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
+        final Button btnSaveLoc = (Button) rootView.findViewById(R.id.btnSaveLocation);
+        btnSaveLoc.setVisibility(View.GONE);
 
         mMapView.onResume(); // needed to get the map to display immediately
 
@@ -62,48 +69,47 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onMapReady(GoogleMap mMap) {
                 googleMap = mMap;
-
                 // For showing a move to my location button
                 if (ActivityCompat.checkSelfPermission(getActivity(),
                         Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                         && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
                     return;
                 }
                 googleMap.setMyLocationEnabled(true);
 
-                // For dropping a marker at a point on the Map
 
-                LatLng myLocation = new LatLng(-30,110);
-                googleMap.addMarker(new MarkerOptions().position(myLocation).title("Marker Title").snippet("Marker Description"));
+
+                // For dropping a marker at a point on the Map
+                //LatLng myLocation = new LatLng(-7.276401,112.794887);
+                //googleMap.addMarker(new MarkerOptions().position(myLocation).title("EEPIS").snippet("pens joss!!!"));
 
                 // For zooming automatically to the location of the marker
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(myLocation).zoom(15).build();
-                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                //CameraPosition cameraPosition = new CameraPosition.Builder().target(myLocation).zoom(15).build();
+                //googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         });
 
+
+        //Search Locate Manually
         PlaceAutocompleteFragment places = (PlaceAutocompleteFragment)
                 getActivity().getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
-
         places.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
-
+                btnSaveLoc.setVisibility(View.VISIBLE);
                 Toast.makeText(getActivity(),place.getName(),Toast.LENGTH_SHORT).show();
                 Toast.makeText(getActivity(),place.getLatLng().toString(),Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(),place.getViewport().toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),place.getViewport().toString(),Toast.LENGTH_SHORT).show();
 
-                LatLng sydney = place.getLatLng();
-                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
+                locationName = place.getName();
+                latitude = place.getLatLng().latitude;
+                longitude = place.getLatLng().longitude;
+
+                LatLng mySearch = place.getLatLng();
+                googleMap.addMarker(new MarkerOptions().position(mySearch).title(place.getName().toString()).snippet(place.getAddress().toString()));
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(mySearch).zoom(18).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
             }
@@ -113,10 +119,28 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        //Filter Search
         AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
                 .setTypeFilter(AutocompleteFilter.TYPE_FILTER_ADDRESS)
                 .build();
         places.setFilter(typeFilter);
+
+        //variabel
+
+        //Define Button btnSaveLocation
+
+        btnSaveLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getActivity(),locationName,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getActivity(),latitude.toString(),Toast.LENGTH_LONG).show();
+                Intent saveLocation = new Intent(getActivity(), SaveLocationActivity.class);
+                saveLocation.putExtra("locationName", locationName);
+                saveLocation.putExtra("latitude", latitude.toString());
+                saveLocation.putExtra("longitude", longitude.toString());
+                startActivity(saveLocation);
+            }
+        });
 
         return rootView;
     }
@@ -147,6 +171,6 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getActivity(), "Button Berhasil", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),"Pindah Halaman",Toast.LENGTH_LONG).show();
     }
 }
