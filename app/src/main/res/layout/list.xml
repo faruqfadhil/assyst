@@ -6,7 +6,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="10dp"
-    android:paddingBottom="10dp"
+    android:paddingBottom="0dp"
     android:clickable="true"
     android:background="?android:attr/selectableItemBackground"
     android:orientation="vertical">
@@ -34,9 +34,10 @@
         android:layout_height="wrap_content" />
 
     <View
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#000"
+        android:background="#aaa"
         android:layout_below="@+id/genre"/>
 
 </RelativeLayout>

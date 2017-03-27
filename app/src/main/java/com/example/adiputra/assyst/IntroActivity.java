@@ -12,6 +12,7 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+        getSupportActionBar().hide();
 
         Button nextBtn = (Button) findViewById(R.id.btnNext);
         nextBtn.setOnClickListener(new View.OnClickListener() {

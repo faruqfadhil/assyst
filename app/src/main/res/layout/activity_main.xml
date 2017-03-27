@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.adiputra.assyst.MainActivity">
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:text="START"
-        android:id="@+id/btnStart"
-        android:layout_marginTop="300dp"
+    <ImageView
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:src="@drawable/powered_by_google_light"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

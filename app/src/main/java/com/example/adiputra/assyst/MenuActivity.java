@@ -19,6 +19,7 @@ public class MenuActivity extends AppCompatActivity {
         tab.addTab(tab.newTab().setText("MAP"));
         tab.addTab(tab.newTab().setText("SETTING"));
 
+        //The First Load
         android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.listFragment,new ListFragment());
         ft.commit();

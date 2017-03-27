@@ -10,16 +10,16 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="@dimen/_10sdp">
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
             android:layout_toRightOf="@+id/tvIntro1"
             android:background="#F5d"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:src="@drawable/bell"/>
         <TextView
-            android:layout_width="270dp"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
             android:text="Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla"
             android:id="@+id/tvIntro1"
@@ -29,16 +29,16 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="@dimen/_10sdp">
         <ImageView
             android:id="@+id/imgintro2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
             android:background="#F5d"
             android:src="@drawable/telephone"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="@dimen/_10sdp"/>
         <TextView
-            android:layout_width="270dp"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
             android:text="Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla"
             android:layout_toRightOf="@+id/imgintro2"/>
@@ -47,26 +47,49 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="@dimen/_10sdp">
         <TextView
-            android:layout_width="270dp"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
             android:text="Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla"
             android:id="@+id/tvintro3"/>
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/imgIntro3"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
             android:layout_toRightOf="@+id/tvintro3"
             android:background="#F5d"
             android:src="@drawable/map"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="@dimen/_10sdp"/>
     </RelativeLayout>
 
-    <Button
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+        <ImageView
+            android:id="@+id/imgIntro4"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:background="#F5d"
+            android:src="@drawable/speech"
+            android:layout_marginRight="@dimen/_10sdp"/>
+        <TextView
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum bla bla bla bla bla bla bla bla bla bla bla bla"
+            android:layout_toRightOf="@+id/imgIntro4"/>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:text="next"
-        android:id="@+id/btnNext"/>
+        android:gravity="bottom"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:text="next"
+            android:id="@+id/btnNext"/>
+    </RelativeLayout>
 
 </LinearLayout>
