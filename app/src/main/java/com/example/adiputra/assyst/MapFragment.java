@@ -53,6 +53,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
         final Button btnSaveLoc = (Button) rootView.findViewById(R.id.btnSaveLocation);
         btnSaveLoc.setVisibility(View.GONE);
 
+        mMapView.onStart();
         mMapView.onResume(); // needed to get the map to display immediately
 
         try {

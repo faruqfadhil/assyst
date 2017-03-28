@@ -22,13 +22,12 @@ import java.util.Comparator;
  * A simple {@link Fragment} subclass.
  */
 public class ListFragment extends Fragment {
-    private java.util.List listData = new ArrayList<>();
     private RecyclerView recyclerView;
+    private java.util.List listData = new ArrayList<>();
     private ListAdapter mAdapter;
 
     //defineDatabaseContext
     Context CTX;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,11 +38,10 @@ public class ListFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view);
-
         mAdapter = new ListAdapter(listData);
+        recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -53,7 +51,6 @@ public class ListFragment extends Fragment {
     }
 
     private void prepareListData() {
-
         DatabaseOperations DOP = new DatabaseOperations(CTX);
         Cursor CR = DOP.getInformation(DOP);
         CR.moveToFirst();
@@ -61,7 +58,6 @@ public class ListFragment extends Fragment {
         String LATITUDE = "";
         String LONGITUDE = "";
         do{
-            //CR.getString(0);
             LOCATION = CR.getString(0);
             LATITUDE = CR.getString(1);
             LONGITUDE = CR.getString(2);
@@ -69,6 +65,5 @@ public class ListFragment extends Fragment {
             listData.add(l);
             Collections.reverse(listData);
         }while(CR.moveToNext());
-
     }
 }
