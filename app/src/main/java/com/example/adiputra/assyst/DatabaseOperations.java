@@ -2,6 +2,7 @@ package com.example.adiputra.assyst;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -42,5 +43,16 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         cv.put(TableData.TableInfo.LONGITUDE, longitude);
         long k = SQ.insert(TableData.TableInfo.TABLE_NAME, null, cv);
         Log.d("Database Operations","1 row inserted");
+    }
+
+    public Cursor getInformation(DatabaseOperations dop){
+        SQLiteDatabase SQ = dop.getReadableDatabase();
+        String[] coloums = {
+                TableData.TableInfo.LOCATION,
+                TableData.TableInfo.LATITUDE,
+                TableData.TableInfo.LONGITUDE
+        };
+        Cursor CR = SQ.query(TableData.TableInfo.TABLE_NAME, coloums, null, null, null, null, null);
+        return CR;
     }
 }

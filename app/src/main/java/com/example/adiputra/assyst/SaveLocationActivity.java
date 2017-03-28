@@ -1,6 +1,7 @@
 package com.example.adiputra.assyst;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +43,8 @@ public class SaveLocationActivity extends AppCompatActivity {
                 DatabaseOperations DB = new DatabaseOperations(ctx);
                 DB.putInformation(DB, location, latitude, longitude);
                 Toast.makeText(getBaseContext(), "Configuration Saved", Toast.LENGTH_LONG).show();
-                finish();
+                Intent i = new Intent(SaveLocationActivity.this, MenuActivity.class);
+                startActivity(i);
             }
         });
 

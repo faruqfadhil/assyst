@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
-    private java.util.List moviesList;
+    private java.util.List listData;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, year, genre;
@@ -23,7 +23,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
 
     public ListAdapter(java.util.List moviesList) {
-        this.moviesList = moviesList;
+        this.listData = moviesList;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         //tambah (List)
-        List movie = (List) moviesList.get(position);
+        List movie = (List) listData.get(position);
         holder.title.setText(movie.getTitle());
         holder.genre.setText(movie.getGenre());
         holder.year.setText(movie.getYear());
@@ -45,6 +45,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return moviesList.size();
+        return listData.size();
     }
 }
