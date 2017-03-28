@@ -4,39 +4,57 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class List {
-    private String title, genre, year;
+    private int id;
+    private String lokasi, latitude, longitude, message;
 
     public List() {
     }
 
-    public List(String title, String genre, String year) {
-        this.title = title;
-        this.genre = genre;
-        this.year = year;
+    public List(int id, String lokasi, String latitude, String longitude, String message) {
+        this.id = id;
+        this.lokasi = lokasi;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.message = message;
     }
 
-    public String getTitle() {
-        return title;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setTitle(String name) {
-        this.title = name;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public String getYear() {
-        return year;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public String getLongitude() {
+        return longitude;
     }
 
-    public String getGenre() {
-        return genre;
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public String getMessage() {
+        return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getLokasi() {
+        return lokasi;
+    }
+
+    public void setLokasi(String lokasi) {
+        this.lokasi = lokasi;
+    }
 }
