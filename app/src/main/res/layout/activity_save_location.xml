@@ -45,8 +45,23 @@
         android:layout_height="@dimen/_40sdp" />
 
     <TextView
-        android:id="@+id/tvMessage"
+        android:id="@+id/tvRadius"
         android:layout_below="@+id/tvCoordinate"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:text="Radius"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/etRadius"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@+id/tvLatitude"
+        android:layout_toRightOf="@+id/tvMessage"/>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_below="@+id/tvRadius"
         android:layout_width="@dimen/_80sdp"
         android:layout_height="@dimen/_20sdp"
         android:text="Message"
@@ -56,7 +71,7 @@
         android:id="@+id/etMessage"
         android:layout_width="@dimen/_220sdp"
         android:layout_height="@dimen/_100sdp"
-        android:layout_below="@+id/tvLatitude"
+        android:layout_below="@+id/tvRadius"
         android:layout_toRightOf="@+id/tvMessage"/>
 
     <Button

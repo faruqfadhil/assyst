@@ -54,14 +54,20 @@ public class ListFragment extends Fragment {
         DatabaseOperations DOP = new DatabaseOperations(CTX);
         Cursor CR = DOP.getInformation(DOP);
         CR.moveToFirst();
+        //int ID = 0;
         String LOCATION = "";
         String LATITUDE = "";
         String LONGITUDE = "";
+        String RADIUS = "";
+        String MESSAGE = "";
         do{
+            //ID = CR.getInt(0);
             LOCATION = CR.getString(0);
             LATITUDE = CR.getString(1);
             LONGITUDE = CR.getString(2);
-            List l = new List(LOCATION, LATITUDE, LONGITUDE);
+            RADIUS = CR.getString(3);
+            MESSAGE = CR.getString(4);
+            List l = new List(LOCATION, LATITUDE, LONGITUDE, RADIUS, MESSAGE);
             listData.add(l);
             Collections.reverse(listData);
         }while(CR.moveToNext());

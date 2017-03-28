@@ -11,19 +11,23 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     private java.util.List listData;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, year, genre;
+        public TextView lokasi, latitude, longitude, radius, message;
+//        TextView id;
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
-            genre = (TextView) view.findViewById(R.id.genre);
-            year = (TextView) view.findViewById(R.id.year);
+            //id = (TextView) view.findViewById(R.id.id);
+            lokasi = (TextView) view.findViewById(R.id.lokasi);
+            latitude = (TextView) view.findViewById(R.id.latitude);
+            longitude = (TextView) view.findViewById(R.id.longitude);
+            radius = (TextView) view.findViewById(R.id.radius);
+            message = (TextView) view.findViewById(R.id.message);
         }
     }
 
 
-    public ListAdapter(java.util.List moviesList) {
-        this.listData = moviesList;
+    public ListAdapter(java.util.List listData) {
+        this.listData = listData;
     }
 
     @Override
@@ -37,10 +41,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         //tambah (List)
-        List movie = (List) listData.get(position);
-        holder.title.setText(movie.getTitle());
-        holder.genre.setText(movie.getGenre());
-        holder.year.setText(movie.getYear());
+        List l = (List) listData.get(position);
+        //holder.id.setText(l.getId());
+        holder.lokasi.setText(l.getLokasi());
+        holder.latitude.setText(l.getLatitude());
+        holder.longitude.setText(l.getLongitude());
+        holder.radius.setText(l.getRadius());
+        holder.message.setText(l.getMessage());
     }
 
     @Override

@@ -5,21 +5,33 @@ import android.os.Bundle;
 
 public class List {
     private int id;
-    private String lokasi, latitude, longitude, message;
+    private String lokasi, latitude, longitude, message, radius;
 
-    public List() {
-    }
-
-    public List(int id, String lokasi, String latitude, String longitude, String message) {
-        this.id = id;
+//    public List(int ID, String LOCATION, String LATITUDE, String LONGITUDE, String RADIUS, String MESSAGE) {
+//    }
+    public List(String lokasi, String latitude, String longitude, String radius, String message) {
+        //this.id = id;
         this.lokasi = lokasi;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.radius = radius;
         this.message = message;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getLokasi() {
+        return lokasi;
+    }
+
+    public void setLokasi(String lokasi) {
+        this.lokasi = lokasi;
     }
 
     public String getLatitude() {
@@ -46,15 +58,11 @@ public class List {
         this.message = message;
     }
 
-    public int getId() {
-        return id;
+    public String getRadius() {
+        return radius;
     }
 
-    public String getLokasi() {
-        return lokasi;
-    }
-
-    public void setLokasi(String lokasi) {
-        this.lokasi = lokasi;
+    public void setRadius(String radius) {
+        this.radius = radius;
     }
 }
